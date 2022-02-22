@@ -36,6 +36,7 @@ export default function App() {
             latitude: 35.67714827145547,
             longitude: 139.6551462687426,
           }}
+          pinColor="black"
         />
 
         
@@ -54,6 +55,8 @@ export default function App() {
             latitude: 35.670482715542,
             longitude: 139.6551462687416,
           }}
+
+          
         />
       </MapView>
     </View>

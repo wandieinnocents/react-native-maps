@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MapView from "react-native-maps";
-import {useState} from "react";
+import { Marker, mapRef } from "react-native-maps";
+import { useState } from "react";
 export default function App() {
-
   const [region, setRegion] = useState({
     latitude: 51.5079145,
     longitude: -0.0899163,
@@ -11,25 +11,55 @@ export default function App() {
     longitudeDelta: 0.01,
   });
 
+  // tokyo
+  const tokyoRegion = {
+    latitude: 35.6762,
+    longitude: 139.6503,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  };
+
   return (
-   <View style={styles.container}>
-    <MapView
-      style={styles.map}
-      initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }}
-      //onRegionChangeComplete runs when the user stops dragging MapView
-      onRegionChangeComplete={(region) => setRegion(region)}
-    />
-    {/*Display user's current region:*/}
-    <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-    <Text style={styles.text}>Current longitude: {region.longitude}</Text>
-  </View>
+    <View style={styles.container}>
+      <MapView
+        ref={mapRef}
+        style={styles.map}
+        initialRegion={tokyoRegion}
+        onRegionChangeComplete={(region) => setRegion(region)}
+      >
+        <Marker coordinate={tokyoRegion} 
+          pinColor="green"
+        />
+        {/*marker to a nearby location */}
+        <Marker
+          coordinate={{
+            latitude: 35.67714827145547,
+            longitude: 139.6551462687426,
+          }}
+        />
+
+        
+
+        {/* another nearby location */}
+        <Marker
+          coordinate={{
+            latitude: 35.6714827145542,
+            longitude: 139.6551462687416,
+          }}
+        />
+
+         {/* another nearby location */}
+         <Marker
+          coordinate={{
+            latitude: 35.670482715542,
+            longitude: 139.6551462687416,
+          }}
+        />
+      </MapView>
+    </View>
   );
 }
+
 //create our styling code:
 const styles = StyleSheet.create({
   container: {

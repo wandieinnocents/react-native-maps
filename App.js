@@ -30,20 +30,23 @@ export default function App() {
       >
         <Marker coordinate={tokyoRegion} 
         image={require("./car.png")}
+        // pinColor="purple"
          />
         {/*marker to a nearby location */}
         <Marker
           coordinate={{
-            latitude: 35.67714827145547,
+            latitude: 35.67718827145547,
             longitude: 139.6551462687426,
           }}
-          pinColor="green"
+          // pinColor="green"
+         
+          image={require("./car.png")}
         />
 
         {/* another nearby location */}
         <Marker
           coordinate={{
-            latitude: 35.6714827145542,
+            latitude: 35.6719827145542,
             longitude: 139.6551462687416,
           }}
           // pinColor="blue"
@@ -52,10 +55,30 @@ export default function App() {
         {/* another nearby location */}
         <Marker
           coordinate={{
-            latitude: 35.670482715542,
+            latitude: 35.673982715542,
             longitude: 139.6551462687416,
           }}
-          pinColor="blue"
+          // pinColor="blue"
+          image={require("./gas-pump.png")}
+        />
+
+        {/* another marker */}
+        <Marker
+          coordinate={{
+            latitude: 35.674482715542,
+            longitude: 139.651462687416,
+          }}
+          // pinColor="purple"
+          image={require("./gas-pump.png")}
+        />
+
+<Marker
+          coordinate={{
+            latitude: 35.6787992715542,
+            longitude: 139.6531462611416,
+          }}
+          // pinColor="purple"
+          image={require("./car.png")}
         />
       </MapView>
     </View>

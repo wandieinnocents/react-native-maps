@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View , } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import MapView from "react-native-maps";
 import { Marker, mapRef } from "react-native-maps";
 import { useState } from "react";
-
 
 export default function App() {
   const [region, setRegion] = useState({
@@ -30,9 +29,8 @@ export default function App() {
         onRegionChangeComplete={(region) => setRegion(region)}
       >
         <Marker coordinate={tokyoRegion} 
-          image={require("./car.png") }
-         
-        />
+        image={require("./car.png")}
+         />
         {/*marker to a nearby location */}
         <Marker
           coordinate={{
@@ -51,15 +49,13 @@ export default function App() {
           // pinColor="blue"
         />
 
-         {/* another nearby location */}
-         <Marker
+        {/* another nearby location */}
+        <Marker
           coordinate={{
             latitude: 35.670482715542,
             longitude: 139.6551462687416,
           }}
           pinColor="blue"
-
-          
         />
       </MapView>
     </View>

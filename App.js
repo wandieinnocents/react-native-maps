@@ -1,99 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import MapView from "react-native-maps";
+import MapView , { PROVIDER_GOOGLE }from "react-native-maps";
 import { Marker, mapRef } from "react-native-maps";
 import { useState } from "react";
+import FirstMap from './screens/MapScreens/FirstMap';
+
 
 export default function App() {
-  const [region, setRegion] = useState({
-    latitude: 51.5079145,
-    longitude: -0.0899163,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  });
-
-  // tokyo
-  const tokyoRegion = {
-    latitude: 35.6762,
-    longitude: 139.6503,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  };
-
+  
+  
   return (
-    <View style={styles.container}>
-      <MapView
-        ref={mapRef}
-        style={styles.map}
-        initialRegion={tokyoRegion}
-        onRegionChangeComplete={(region) => setRegion(region)}
-      >
-        <Marker coordinate={tokyoRegion} 
-        image={require("./car.png")}
-        // pinColor="purple"
-         />
-        {/*marker to a nearby location */}
-        <Marker
-          coordinate={{
-            latitude: 35.67718827145547,
-            longitude: 139.6551462687426,
-          }}
-          // pinColor="green"
-         
-          image={require("./car.png")}
-        />
-
-        {/* another nearby location */}
-        <Marker
-          coordinate={{
-            latitude: 35.6719827145542,
-            longitude: 139.6551462687416,
-          }}
-          // pinColor="blue"
-        />
-
-        {/* another nearby location */}
-        <Marker
-          coordinate={{
-            latitude: 35.673982715542,
-            longitude: 139.6551462687416,
-          }}
-          // pinColor="blue"
-          image={require("./gas-pump.png")}
-        />
-
-        {/* another marker */}
-        <Marker
-          coordinate={{
-            latitude: 35.674482715542,
-            longitude: 139.651462687416,
-          }}
-          // pinColor="purple"
-          image={require("./gas-pump.png")}
-        />
-
-<Marker
-          coordinate={{
-            latitude: 35.6787992715542,
-            longitude: 139.6531462611416,
-          }}
-          // pinColor="purple"
-          image={require("./car.png")}
-        />
-      </MapView>
-    </View>
+   <FirstMap />
   );
 }
-
-//create our styling code:
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    flex: 1, //the container will fill the whole screen.
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
